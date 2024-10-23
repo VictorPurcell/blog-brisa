@@ -1,4 +1,5 @@
 defmodule BlogWeb.Router do
+  alias BlogWeb.CommentController
   use BlogWeb, :router
 
   import BlogWeb.UserAuth
@@ -81,5 +82,20 @@ defmodule BlogWeb.Router do
       live "/users/confirm/:token", UserConfirmationLive, :edit
       live "/users/confirm", UserConfirmationInstructionsLive, :new
     end
+  end
+
+  scope "/posts", BlogWeb do
+    pipe_through [:browser]
+
+    post "/comments/new", CommentController, :new
+    get "/comments/", CommentController, :comments
+    get "/comments/edit", CommentController, :edit
+    get "/", PostController, :index
+    get "/newpost", PostController, :new
+    get "/postedit", PostController, :edit
+    get "/delete", PostController, :delete
+    get "/create", PostController, :create
+    get "/show", PostControllerm, :show
+    get "/update", PostController, :update
   end
 end
