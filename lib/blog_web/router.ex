@@ -87,15 +87,23 @@ defmodule BlogWeb.Router do
   scope "/posts", BlogWeb do
     pipe_through [:browser]
 
-    post "/comments/new", CommentController, :new
-    get "/comments/", CommentController, :comments
-    get "/comments/edit", CommentController, :edit
     get "/", PostController, :index
     get "/newpost", PostController, :new
     get "/postedit", PostController, :edit
     get "/delete", PostController, :delete
     get "/create", PostController, :create
-    get "/show", PostControllerm, :show
+    get "/show", PostController, :show
     get "/update", PostController, :update
+  end
+
+  scope "/comment", BlogWeb do
+    pipe_through []
+
+    get "/", CommentController, :index
+    post "/new", CommentController, :new
+    get "/edit", CommentController, :edit
+    post "/show", CommentController, :show
+    post "/update", CommentController, :update
+    get "/delete", CommentController, :delete
   end
 end
