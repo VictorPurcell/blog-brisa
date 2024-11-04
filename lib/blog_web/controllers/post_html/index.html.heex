@@ -12,12 +12,12 @@
   <:col :let={post} label="Body"><%= post.body %></:col>
   <:action :let={post}>
     <div class="sr-only">
-      <.link navigate={~p"/posts/#{post}"}>Show</.link>
+      <.link navigate={~p"/post/#{post}"}>Show</.link>
     </div>
-    <.link navigate={~p"/posts/#{post}/edit"}>Edit</.link>
+    <.link navigate={~p"/post/#{post}/edit"}>Edit</.link>
   </:action>
   <:action :let={post}>
-    <.link href={~p"/posts/#{post}"} method="delete" data-confirm="Are you sure?">
+    <.link href={~p"/post/#{post}/delete"} method="delete" data-confirm="Are you sure?">
       Delete
     </.link>
   </:action>

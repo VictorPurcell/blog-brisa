@@ -19,7 +19,7 @@ defmodule BlogWeb.PostController do
       {:ok, post} ->
         conn
         |> put_flash(:info, "Post created successfully.")
-        |> redirect(to: ~p"/posts/#{post}")
+        |> redirect(to: ~p"/posts")
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, :new, changeset: changeset)
@@ -38,13 +38,15 @@ defmodule BlogWeb.PostController do
   end
 
   def update(conn, %{"id" => id, "post" => post_params}) do
+    IO.inspect("salve")
+    IO.inspect(id)
     post = Content.get_post!(id)
 
     case Content.update_post(post, post_params) do
       {:ok, post} ->
         conn
         |> put_flash(:info, "Post updated successfully.")
-        |> redirect(to: ~p"/posts/#{post}")
+        |> redirect(to: ~p"/posts/")
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, :edit, post: post, changeset: changeset)
@@ -57,6 +59,6 @@ defmodule BlogWeb.PostController do
 
     conn
     |> put_flash(:info, "Post deleted successfully.")
-    |> redirect(to: ~p"/posts")
+    |> redirect(to: ~p"/posts/")
   end
 end

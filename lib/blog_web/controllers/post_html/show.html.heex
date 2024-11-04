@@ -2,7 +2,7 @@
   Post <%= @post.id %>
   <:subtitle>This is a post record from your database.</:subtitle>
   <:actions>
-    <.link href={~p"/posts/#{@post}/edit"}>
+    <.link href={~p"/post/#{@post.id}/edit"}>
       <.button>Edit post</.button>
     </.link>
   </:actions>
