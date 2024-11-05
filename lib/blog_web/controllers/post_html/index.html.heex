@@ -1,13 +1,13 @@
 <.header>
   Listing Posts
   <:actions>
-    <.link href={~p"/posts/new"}>
+    <.link href={~p"/post/create"}>
       <.button>New Post</.button>
     </.link>
   </:actions>
 </.header>
 
-<.table id="posts" rows={@posts} row_click={&JS.navigate(~p"/posts/#{&1}")}>
+<.table id="posts" rows={@posts} row_click={&JS.navigate(~p"/post/#{&1}")}>
   <:col :let={post} label="Title"><%= post.title %></:col>
   <:col :let={post} label="Body"><%= post.body %></:col>
   <:action :let={post}>

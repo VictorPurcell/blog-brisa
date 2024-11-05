@@ -1,5 +1,5 @@
 defmodule BlogWeb.Router do
-  alias BlogWeb.CommentController
+  # alias BlogWeb.CommentController
   use BlogWeb, :router
 
   import BlogWeb.UserAuth
@@ -93,7 +93,7 @@ defmodule BlogWeb.Router do
     get("/post/:id/edit", PostController, :edit)
     put("/post/:id/edit", PostController, :update)
     delete("/post/:id/delete", PostController, :delete)
-    get("/post/:id/show/", PostController, :show)
+    get("/post/:id/", PostController, :show)
     # get("post/update", PostController, :update)
   end
 
